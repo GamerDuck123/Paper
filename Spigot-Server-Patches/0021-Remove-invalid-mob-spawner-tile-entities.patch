@@ -5,10 +5,10 @@ Subject: [PATCH] Remove invalid mob spawner tile entities
 
 
 diff --git a/src/main/java/net/minecraft/server/Chunk.java b/src/main/java/net/minecraft/server/Chunk.java
-index 09b4594ae6750252b4b13ed4735dad0d00e2aeec..a803d1093dfa7c7421eda913679766224fda6dcf 100644
+index 19ddcabdc17c23c4ec46f5669ba0fd56d4bbee58..0da51a454b599f54f3bd443040cdcac57b1c7d7c 100644
 --- a/src/main/java/net/minecraft/server/Chunk.java
 +++ b/src/main/java/net/minecraft/server/Chunk.java
-@@ -608,6 +608,10 @@ public class Chunk implements IChunkAccess {
+@@ -612,6 +612,10 @@ public class Chunk implements IChunkAccess {
              }
  
              // CraftBukkit start

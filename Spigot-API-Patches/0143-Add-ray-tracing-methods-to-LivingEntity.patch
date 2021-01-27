@@ -65,7 +65,7 @@ index 0000000000000000000000000000000000000000..18a96dbb01d3b34476652264b2d6be37
 +    }
 +}
 diff --git a/src/main/java/org/bukkit/entity/LivingEntity.java b/src/main/java/org/bukkit/entity/LivingEntity.java
-index 5f8a544574bbc095f2b2c06ccbf887d17af93475..c75ce8435ddef6502df1a57ca4b95186259a2a41 100644
+index 8b89c0701dd557bcab0c05c1593354ee704b9fe4..8fe7ccf12339355554835542cc1068d9f6c3a435 100644
 --- a/src/main/java/org/bukkit/entity/LivingEntity.java
 +++ b/src/main/java/org/bukkit/entity/LivingEntity.java
 @@ -82,6 +82,77 @@ public interface LivingEntity extends Attributable, Damageable, ProjectileSource

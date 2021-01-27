@@ -5,10 +5,10 @@ Subject: [PATCH] Custom replacement for eaten items
 
 
 diff --git a/src/main/java/net/minecraft/server/EntityLiving.java b/src/main/java/net/minecraft/server/EntityLiving.java
-index ac608392ec480b927ce5047cc0519ea06a68e040..9c9af548fe32ab1dd3eecdb4fe4aacf255b39e22 100644
+index aeb6b01dfa6537f08129c254f3e1180299f56c99..3858fabf74e7604a7c62806e98c68eed4a97a485 100644
 --- a/src/main/java/net/minecraft/server/EntityLiving.java
 +++ b/src/main/java/net/minecraft/server/EntityLiving.java
-@@ -3067,9 +3067,10 @@ public abstract class EntityLiving extends Entity {
+@@ -3105,9 +3105,10 @@ public abstract class EntityLiving extends Entity {
                  this.b(this.activeItem, 16);
                  // CraftBukkit start - fire PlayerItemConsumeEvent
                  ItemStack itemstack;
@@ -20,18 +20,23 @@ index ac608392ec480b927ce5047cc0519ea06a68e040..9c9af548fe32ab1dd3eecdb4fe4aacf2
                      world.getServer().getPluginManager().callEvent(event);
  
                      if (event.isCancelled()) {
-@@ -3084,9 +3085,20 @@ public abstract class EntityLiving extends Entity {
+@@ -3121,6 +3122,13 @@ public abstract class EntityLiving extends Entity {
+                 } else {
                      itemstack = this.activeItem.a(this.world, this);
                  }
- 
++
 +                // Paper start - save the default replacement item and change it if necessary
 +                final ItemStack defaultReplacement = itemstack;
 +                if (event != null && event.getReplacement() != null) {
 +                    itemstack = CraftItemStack.asNMSCopy(event.getReplacement());
 +                }
 +                // Paper end
-                 this.a(this.getRaisedHand(), itemstack);
                  // CraftBukkit end
+ 
+                 if (itemstack != this.activeItem) {
+@@ -3128,6 +3136,11 @@ public abstract class EntityLiving extends Entity {
+                 }
+ 
                  this.clearActiveItem();
 +                // Paper start - if the replacement is anything but the default, update the client inventory
 +                if (this instanceof EntityPlayer && !com.google.common.base.Objects.equal(defaultReplacement, itemstack)) {

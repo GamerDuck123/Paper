@@ -14,11 +14,11 @@ it without having to shade it in the plugin and going through
 several layers of logging abstraction.
 
 diff --git a/pom.xml b/pom.xml
-index 08a1a70e2fe582e238fc9c87af69368359646231..cb37aea9d7f60b54b95b5cf1798d5a6c5c0e7c14 100644
+index e040e0e37276295a0b7404357679e80fbbb618a3..7747189d49727eea039f3994e186b34480025144 100644
 --- a/pom.xml
 +++ b/pom.xml
 @@ -109,6 +109,13 @@
-             <version>19.0.0</version>
+             <version>20.1.0</version>
              <scope>provided</scope>
          </dependency>
 +        <!-- Paper - Add SLF4J -->
